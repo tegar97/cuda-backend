@@ -2,6 +2,14 @@ pipeline {
     agent any
     
     stages {
+        stage('Create Static Directory') {
+            steps {
+                script {
+                    sh 'mkdir -p static'
+                }
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 script {
@@ -18,6 +26,7 @@ pipeline {
                     sh 'docker rm fastapi-container || true'
                     
                     sh 'docker run -d -p 8000:8000 --name fastapi-container fastapi-app'
+                    
                 }
             }
         }
