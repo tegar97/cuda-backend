@@ -2,14 +2,6 @@ pipeline {
     agent any
     
     stages {
-        stage('Create Static Directory') {
-            steps {
-                script {
-                    sh 'mkdir -p static'
-                }
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 script {
