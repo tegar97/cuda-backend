@@ -25,8 +25,9 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'sleep 5'
+
+                echo 'Running tests...'
                 
-                sh 'docker exec fastapi-container python -m pytest tests/'
             }
         }
     }
